@@ -91,7 +91,7 @@
 /* Booking details section */
 .booking-details-section {
     display: grid;
-    grid-template-columns: 1fr 400px;
+    grid-template-columns: 540px 1fr; /* bigger media/map column */
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
@@ -767,6 +767,10 @@
 
 .booking-meeting-location {
     margin-bottom: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    padding: 16px;
 }
 
 .booking-meeting-location h3 {
@@ -780,7 +784,7 @@
 }
 
 .meeting-location-map {
-    height: 200px;
+    height: 300px; /* increase map visibility */
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 15px;

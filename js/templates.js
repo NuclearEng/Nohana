@@ -151,7 +151,7 @@ window.templates = {
         
         <!-- Value Proposition Section -->
         <div class="value-props">
-            <h2>Why Choose WaveSurf?</h2>
+            <h2>Why Choose Nohana?</h2>
             <div class="props-grid">
                 <div class="prop-item">
                     <div class="prop-icon">✅</div>
@@ -659,22 +659,23 @@ window.templates = {
     </div>`,
     
     // Favorites page template
-    'favorites-page': `<div class="favorites-container">
-        <div class="favorites-header">
-            <h1>Saved Boats (<span id="favorites-count">0</span>)</h1>
+    'favorites-page': `<div class="favorites-container surface">
+        <div class="page-header">
+            <h1 class="page-title">Saved Boats (<span id="favorites-count">0</span>)</h1>
+            <a href="#/" data-route="/" class="btn-secondary">Explore boats</a>
         </div>
         
-        <div class="favorites-content">
+        <div class="favorites-content card-body">
             <div id="favorites-list" class="favorites-grid">
                 <!-- Will be populated by favorites-page.js -->
             </div>
             
-            <div id="no-favorites" class="no-favorites hidden">
-                <div class="no-favorites-content">
+            <div id="no-favorites" class="no-favorites hidden empty-state">
+                <div class="no-favorites-content" style="border:none;">
                     <i class="far fa-heart"></i>
                     <h2>No saved boats yet</h2>
                     <p>Click the heart icon on any boat listing to save it for later.</p>
-                    <a href="#/" data-route="/" class="btn btn-primary">Explore boats</a>
+                    <a href="#/" data-route="/" class="btn-primary">Explore boats</a>
                 </div>
             </div>
         </div>

@@ -229,7 +229,7 @@
         bookingCard.innerHTML = `
             <div class="booking-card-header">
                 <div class="booking-card-image">
-                    <img src="${booking.image}" alt="${booking.title}">
+                    <img src="${booking.image}" alt="${booking.title}" onerror="this.onerror=null;this.src='images/placeholder.svg'">
                 </div>
                 <div class="booking-card-title">
                     <h3>${booking.title}</h3>

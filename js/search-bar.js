@@ -149,11 +149,11 @@
 
     function initSeatsSelector() {
         const seatsInput = document.getElementById('seats-input');
-        const seatsCount = document.getElementById('seats-count');
+        const seatsCountEl = document.getElementById('seats-count');
         const decrementBtn = document.getElementById('seats-decrement');
         const incrementBtn = document.getElementById('seats-increment');
 
-        let currentSeats = 1;
+        let currentSeats = seatsCount || 1;
 
         if (decrementBtn && incrementBtn) {
             decrementBtn.addEventListener('click', (e) => {
@@ -174,7 +174,7 @@
         }
 
         function updateSeatsDisplay(count) {
-            if (seatsCount) seatsCount.textContent = count;
+            if (seatsCountEl) seatsCountEl.textContent = count;
             if (seatsInput) seatsInput.value = count === 1 ? '1 seat' : `${count} seats`;
             seatsCount = count;
 

@@ -16,7 +16,7 @@
     }
     
         // Set page title
-        document.title = `${listing.title} - WaveSurf`;
+        document.title = `${listing.title} - Nohana`;
         
         // Get the main content container
         const mainContent = document.querySelector('.main-content .container');
@@ -97,7 +97,7 @@
                 hostResponseHTML = `
                     <div class="host-response">
                         <div class="host-response-header">
-                            <img src="${review.hostResponse.host.avatar}" alt="Host" class="host-response-avatar">
+                            <img src="${review.hostResponse.host.avatar}" alt="Host" class="host-response-avatar" onerror="this.onerror=null;this.src='images/host-avatar.jpg'">
                             <div class="host-response-name">${review.hostResponse.host.name}<span class="host-response-title"> (Host)</span></div>
                         </div>
                         <div class="host-response-content">${review.hostResponse.comment}</div>
@@ -109,7 +109,7 @@
             return `
                 <div class="review-item" data-id="${review.id}">
                     <div class="review-header">
-                        <img src="${review.user.avatar}" alt="${review.user.name}" class="review-avatar">
+                        <img src="${review.user.avatar}" alt="${review.user.name}" class="review-avatar" onerror="this.onerror=null;this.src='images/user-avatar.jpg'">
                         <div class="review-info">
                             <div class="review-name">${review.user.name}</div>
                             <div class="review-date">${review.user.date}</div>

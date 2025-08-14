@@ -11,6 +11,20 @@ document.addEventListener('DOMContentLoaded', function() {
         .on('/search', showSearchResults)
         .on('/listing/:id', showListingDetail)
         .on('/host', showHostDashboard)
+        .on('/help', showStaticPlaceholder)
+        .on('/safety', showStaticPlaceholder)
+        .on('/cancellation', showStaticPlaceholder)
+        .on('/covid', showStaticPlaceholder)
+        .on('/host-resources', showStaticPlaceholder)
+        .on('/community-forum', showStaticPlaceholder)
+        .on('/responsible-hosting', showStaticPlaceholder)
+        .on('/about', showStaticPlaceholder)
+        .on('/news', showStaticPlaceholder)
+        .on('/investors', showStaticPlaceholder)
+        .on('/careers', showStaticPlaceholder)
+        .on('/privacy', showStaticPlaceholder)
+        .on('/terms', showStaticPlaceholder)
+        .on('/sitemap', showStaticPlaceholder)
         .on('/become-host', showBecomeHostPage)
         .on('/bookings', showBookings)
         .on('/favorites', showFavoritesPage)
@@ -665,6 +679,22 @@ function show404() {
     mainContent.innerHTML = content;
     
     // Hide loading overlay
+    toggleLoadingOverlay(false);
+}
+
+/**
+ * Generic static placeholder route handler for not-yet-implemented pages
+ */
+function showStaticPlaceholder() {
+    const mainContent = document.getElementById('main-content');
+    if (!mainContent) return;
+    mainContent.innerHTML = `
+        <div class="surface card-body">
+            <h1>Coming soon</h1>
+            <p>This page is not available in the demo. All primary flows (home, search, listing, booking, account, favorites, host) are fully functional.</p>
+            <a href="#/" data-route="/" class="btn-primary">Return to Home</a>
+        </div>
+    `;
     toggleLoadingOverlay(false);
 }
 

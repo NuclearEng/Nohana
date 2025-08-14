@@ -19,7 +19,11 @@
         document.title = `${listing.title} - Nohana`;
         
         // Get the main content container
-        const mainContent = document.querySelector('.main-content .container');
+        let mainContent = document.querySelector('.main-content .container');
+        if (!mainContent) {
+            // Fallback to #listing-content if router injected listing-detail container
+            mainContent = document.getElementById('listing-content');
+        }
         if (!mainContent) {
             console.error('Main content container not found');
             return;

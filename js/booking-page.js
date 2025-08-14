@@ -139,8 +139,14 @@ function initDetailsStep(bookingData, listing) {
     // Set listing details
     document.getElementById('booking-listing-title').textContent = listing.title;
     document.getElementById('booking-listing-location').textContent = listing.location;
-    document.getElementById('booking-listing-image').src = listing.images[0];
-    document.getElementById('booking-listing-image').alt = listing.title;
+    (function(){
+        const imgEl = document.getElementById('booking-listing-image');
+        if (imgEl) {
+            imgEl.onerror = function(){ this.onerror = null; this.src = 'images/placeholder.svg'; };
+            imgEl.src = (listing.images && listing.images[0]) ? listing.images[0] : 'images/placeholder.svg';
+            imgEl.alt = listing.title;
+        }
+    })();
     document.getElementById('booking-price-per-seat').textContent = `$${listing.price}`;
     document.getElementById('booking-available-seats').textContent = listing.availableSeats;
     

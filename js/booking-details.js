@@ -119,14 +119,16 @@ function initBookingDetails(bookingId) {
     
     // Set host avatar
     const hostAvatar = document.getElementById('host-avatar');
-    if (hostAvatar && booking.host.avatar) {
-        hostAvatar.src = booking.host.avatar;
-        hostAvatar.alt = booking.host.name;
+    if (hostAvatar) {
+        hostAvatar.onerror = function(){ this.onerror = null; this.src = 'images/host-avatar.jpg'; };
+        hostAvatar.src = (booking.host && booking.host.avatar) ? booking.host.avatar : 'images/host-avatar.jpg';
+        hostAvatar.alt = booking.host ? booking.host.name : 'Host';
     }
     
     // Set boat image
     const boatImage = document.getElementById('boat-image');
     if (boatImage) {
+        boatImage.onerror = function(){ this.onerror = null; this.src = 'images/placeholder.svg'; };
         boatImage.src = `images/listings/${booking.listingId.replace('listing-', 'boat')}-1.jpg`;
         boatImage.alt = booking.boatName;
     }
@@ -535,9 +537,10 @@ function openContactHostModal(booking) {
     // Set host details
     document.getElementById('contact-host-name').textContent = booking.host.name;
     const hostAvatar = document.getElementById('contact-host-avatar');
-    if (hostAvatar && booking.host.avatar) {
-        hostAvatar.src = booking.host.avatar;
-        hostAvatar.alt = booking.host.name;
+    if (hostAvatar) {
+        hostAvatar.onerror = function(){ this.onerror = null; this.src = 'images/host-avatar.jpg'; };
+        hostAvatar.src = (booking.host && booking.host.avatar) ? booking.host.avatar : 'images/host-avatar.jpg';
+        hostAvatar.alt = booking.host ? booking.host.name : 'Host';
     }
     
     // Show the modal

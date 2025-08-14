@@ -76,7 +76,7 @@ window.initMap = function() {
             // Create info window content
             const content = `
                 <div class="map-popup">
-                    <img src="${listing.image}" alt="${listing.title}">
+                    <img src="${listing.image}" alt="${listing.title}" onerror="this.onerror=null;this.src='images/placeholder.svg'">
                     <div class="popup-info">
                         <div class="popup-rating">
                             <i class="fas fa-star"></i>

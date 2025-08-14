@@ -173,6 +173,7 @@ function initBookingConfirmation(bookingId) {
     // Set boat image
     const boatImage = document.getElementById('boat-image');
     if (boatImage) {
+        boatImage.onerror = function(){ this.onerror = null; this.src = 'images/placeholder.svg'; };
         boatImage.src = `images/listings/${booking.listingId.replace('listing-', 'boat')}-1.jpg`;
         boatImage.alt = booking.boatName;
     }

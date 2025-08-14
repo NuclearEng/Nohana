@@ -9,8 +9,11 @@
  */
 function createListingDetailHTML(listing) {
     // Create image gallery HTML
-    const imagesHTML = listing.images.map(image => 
-        `<div class="gallery-image"><img src="${image}" alt="${listing.title}"></div>`
+    const imagesHTML = (listing.images && listing.images.length > 0
+        ? listing.images
+        : ['images/placeholder.svg']
+    ).map(image => 
+        `<div class="gallery-image"><img src="${image}" alt="${listing.title}" onerror="this.onerror=null;this.src='images/placeholder.svg'"></div>`
     ).join('');
     
     // Create features HTML
@@ -121,7 +124,7 @@ function createListingDetailHTML(listing) {
                     <div class="listing-host">
                         <h2>About the host</h2>
                         <div class="host-info">
-                            <img src="${listing.host.avatar}" alt="${listing.host.name}" class="host-avatar">
+                            <img src="${listing.host.avatar}" alt="${listing.host.name}" class="host-avatar" onerror="this.onerror=null;this.src='images/host-avatar.jpg'">
                             <div class="host-details">
                                 <h3>${listing.host.name}</h3>
                                 <div class="host-rating">

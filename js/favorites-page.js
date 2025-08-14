@@ -52,7 +52,7 @@ function createListingCard(listing) {
     // Handle missing images gracefully
     const hasImages = listing.images && listing.images.length > 0;
     const imageContent = hasImages 
-        ? `<img src="${listing.images[0]}" alt="${listing.title}">`
+        ? `<img src="${listing.images[0]}" alt="${listing.title}" onerror="this.onerror=null;this.src='images/placeholder.svg'">`
         : `<div class="placeholder-image">
              <i class="fas fa-ship"></i>
              <span>${listing.title}</span>
@@ -187,6 +187,8 @@ function initFavoriteSliders() {
         const nextButton = slider.querySelector('.next');
         const dots = slider.querySelectorAll('.dot');
         const imageContainer = slider.querySelector('img');
+
+        if (!imageContainer) return;
         
         let currentIndex = 0;
         const listingId = slider.closest('.listing-card').getAttribute('data-listing-id');

@@ -428,7 +428,7 @@ function loadListings(filter = 'all') {
         listingCard.className = 'host-listing-card';
         listingCard.innerHTML = `
             <div class="host-listing-image">
-                <img src="${listing.image}" alt="${listing.title}">
+                <img src="${listing.image}" alt="${listing.title}" onerror="this.onerror=null;this.src='images/placeholder.svg'">
                 <div class="listing-status status-${listing.status}">${capitalize(listing.status)}</div>
             </div>
             <div class="host-listing-content">
@@ -702,7 +702,7 @@ function showListingModal(listing = null) {
                 const photoDiv = document.createElement('div');
                 photoDiv.className = 'uploaded-photo';
                 photoDiv.innerHTML = `
-                    <img src="${image}" alt="Boat photo ${index + 1}">
+                    <img src="${image}" alt="Boat photo ${index + 1}" onerror="this.onerror=null;this.src='images/placeholder.svg'">
                     <button type="button" class="remove-photo">
                         <i class="fas fa-times"></i>
                     </button>

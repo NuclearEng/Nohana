@@ -144,7 +144,7 @@ function createListingCard(listing) {
     // Handle missing images gracefully
     const hasImages = listing.images && listing.images.length > 0;
     const imageContent = hasImages 
-        ? `<img src="${listing.images[0]}" alt="${listing.title}">`
+        ? `<img src="${listing.images[0]}" alt="${listing.title}" onerror="this.onerror=null;this.src='images/placeholder.svg'">`
         : `<div class="placeholder-image">
              <i class="fas fa-ship"></i>
              <span>${listing.title}</span>
@@ -248,7 +248,7 @@ function updateMap(listings) {
         // Create info window content
         const content = `
             <div class="map-popup">
-                <img src="${listing.images[0]}" alt="${listing.title}">
+                <img src="${(listing.images && listing.images[0]) ? listing.images[0] : 'images/placeholder.svg'}" alt="${listing.title}" onerror="this.onerror=null;this.src='images/placeholder.svg'">
                 <div class="popup-info">
                     <div class="popup-rating">
                         <i class="fas fa-star"></i>
@@ -339,12 +339,14 @@ function initSliders() {
         if (!imageContainer) return;
         
         let currentIndex = 0;
-        const images = [
-            imageContainer.src,
-            imageContainer.src.replace('-1.jpg', '-2.jpg'),
-            imageContainer.src.replace('-1.jpg', '-3.jpg'),
-            imageContainer.src.replace('-1.jpg', '-4.jpg')
-        ];
+        const images = imageContainer && imageContainer.src && /-1\.jpg$/.test(imageContainer.src)
+            ? [
+                imageContainer.src,
+                imageContainer.src.replace('-1.jpg', '-2.jpg'),
+                imageContainer.src.replace('-1.jpg', '-3.jpg'),
+                imageContainer.src.replace('-1.jpg', '-4.jpg')
+            ]
+            : [imageContainer.src];
         
         // Update image and dots
         function updateSlider() {

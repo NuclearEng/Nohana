@@ -180,6 +180,12 @@ function showListingDetail(match) {
     }
     
     toggleLoadingOverlay(true, 'Loading listing details...');
+
+    // Ensure the listing detail template is injected so required containers exist
+    const mainContentEl = document.getElementById('main-content');
+    if (mainContentEl && window.templates && window.templates['listing-detail']) {
+        mainContentEl.innerHTML = window.templates['listing-detail'];
+    }
     
     // Load listings service and listing detail scripts if not already loaded
     Promise.all([

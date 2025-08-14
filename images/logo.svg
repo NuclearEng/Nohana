@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <title>WaveSurf Logo</title>
-    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M16,0 C24.8365564,0 32,7.16344357 32,16 C32,24.8365564 24.8365564,32 16,32 C7.16344357,32 0,24.8365564 0,16 C0,7.16344357 7.16344357,0 16,0 Z" fill="#0066FF"></path>
-        <path d="M7,14 C9.33333333,14 10.5,15.3333333 10.5,18 C10.5,16 11.6666667,15 14,15 C11.6666667,15 10.5,14 10.5,12 C10.5,14.6666667 9.33333333,16 7,16 C9.33333333,16 10.5,17.3333333 10.5,20 C10.5,18 11.6666667,17 14,17 C16.3333333,17 17.5,18 17.5,20 C17.5,17.3333333 18.6666667,16 21,16 C18.6666667,16 17.5,14.6666667 17.5,12 C17.5,14 16.3333333,15 14,15 C16.3333333,15 17.5,16 17.5,18 C17.5,15.3333333 18.6666667,14 21,14 C23.3333333,14 24.5,15.3333333 24.5,18 C24.5,16 25.6666667,15 28,15 C25.6666667,15 24.5,14 24.5,12 C24.5,14.6666667 23.3333333,16 21,16 C23.3333333,16 24.5,17.3333333 24.5,20 C24.5,18 25.6666667,17 28,17" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-    </g>
+<!-- Nohana wordmark with waves under every letter -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 160" width="240" height="60" role="img" aria-label="Nohana logo">
+  <defs>
+    <style>
+      .txt { font-family: 'Poppins', Arial, sans-serif; font-weight: 700; fill: #0077B6; }
+      .wave { fill: none; stroke: #4ECDC4; stroke-width: 6; stroke-linecap: round; }
+    </style>
+    <!-- Single tilde-like wave (~) built from smooth quads -->
+    <path id="wave-tilde" d="M0 6 Q8 -2 16 6 T32 6"/>
+  </defs>
+
+  <!-- Letters baseline at y=82; waves around y=100 -->
+  <g>
+    <text class="txt" x="70"  y="82" font-size="72">N</text>
+    <text class="txt" x="150" y="82" font-size="72">o</text>
+    <text class="txt" x="230" y="82" font-size="72">h</text>
+    <text class="txt" x="310" y="82" font-size="72">o</text>
+    <text class="txt" x="390" y="82" font-size="72">n</text>
+    <text class="txt" x="470" y="82" font-size="72">a</text>
+
+    <!-- Under-letter waves (centered) -->
+    <g class="wave" transform="translate(54,102)"><use href="#wave-tilde"/></g>
+    <g class="wave" transform="translate(134,102)"><use href="#wave-tilde"/></g>
+    <g class="wave" transform="translate(214,102)"><use href="#wave-tilde"/></g>
+    <g class="wave" transform="translate(294,102)"><use href="#wave-tilde"/></g>
+    <g class="wave" transform="translate(374,102)"><use href="#wave-tilde"/></g>
+    <g class="wave" transform="translate(454,102)"><use href="#wave-tilde"/></g>
+  </g>
 </svg>

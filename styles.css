@@ -637,6 +637,179 @@ button {
     font-size: 16px;
 }
 
+/* =============================
+   Best-in-class page polishing
+   ============================= */
+
+/* Section headings */
+.page-title,
+.section-title {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-color);
+}
+
+.page-title { font-size: 2rem; margin: 8px 0 24px; }
+.section-title { font-size: 1.4rem; margin: 16px 0 12px; }
+
+/* Unified surface cards */
+.surface,
+.listing-card,
+.booking-card,
+.host-listing-card,
+.message-card,
+.dashboard-card,
+.profile-card {
+    background-color: #fff;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.surface:hover,
+.listing-card:hover,
+.booking-card:hover,
+.host-listing-card:hover,
+.message-card:hover,
+.dashboard-card:hover,
+.profile-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(0,0,0,.06);
+}
+
+/* Header bars */
+.page-header,
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+    background: linear-gradient(180deg, #ffffff, #fafbfc);
+    border-top-left-radius: var(--border-radius-lg);
+    border-top-right-radius: var(--border-radius-lg);
+}
+
+.card-body { padding: 16px 20px; }
+
+/* List rows */
+.row,
+.message-item,
+.booking-item,
+.transaction-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+.row:last-child,
+.message-item:last-child,
+.booking-item:last-child,
+.transaction-item:last-child { border-bottom: none; }
+
+/* Badges */
+.badge,
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: var(--background-light);
+    color: var(--text-light);
+}
+.badge.success { background: rgba(78,205,196,.12); color: var(--success-color); }
+.badge.warning { background: rgba(245,158,11,.12); color: var(--warning-color); }
+.badge.error   { background: rgba(239,68,68,.12);  color: var(--error-color); }
+
+/* Tabs polished */
+.tabs,
+.account-tabs,
+.booking-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    gap: 12px;
+}
+.tab,
+.account-tab,
+.booking-tab {
+    position: relative;
+    padding: 12px 14px;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: color .2s ease;
+}
+.tab.active,
+.account-tab.active,
+.booking-tab.active { color: var(--text-color); }
+.tab.active::after,
+.account-tab.active::after,
+.booking-tab.active::after {
+    content: '';
+    position: absolute;
+    left: 10px; right: 10px; bottom: -1px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+/* Tables */
+.table,
+.bookings-table,
+.transactions-table { width: 100%; border-collapse: collapse; }
+.table th,
+.table td,
+.bookings-table th,
+.bookings-table td,
+.transactions-table th,
+.transactions-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+.table tr:hover,
+.bookings-table tr:hover,
+.transactions-table tr:hover { background: #fafbfc; }
+
+/* Messages */
+.message-thread { background: #fff; border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); overflow: hidden; }
+.message-input { border: 1px solid var(--border-color); border-radius: 999px; padding: 10px 14px; }
+
+/* Forms */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select, textarea {
+    border-radius: 10px;
+    border: 1.5px solid var(--border-color);
+    padding: 12px 14px;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(0,119,182,.12);
+    outline: none;
+}
+
+/* Empty states */
+.empty-state {
+    display: grid; place-items: center; text-align: center;
+    border: 1px dashed var(--border-color);
+    background: #fff;
+    border-radius: var(--border-radius-lg);
+    padding: 28px;
+    color: var(--text-light);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .card-body { padding: 14px; }
+    .page-title { font-size: 1.6rem; }
+    .section-title { font-size: 1.2rem; }
+}
 /* Guest counter */
 .guest-counter {
     display: flex;

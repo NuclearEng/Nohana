@@ -1,20 +1,21 @@
 /* General Styles */
 :root {
-    --primary-color: #0066ff;
-    --primary-light: #3385ff;
-    --primary-dark: #0052cc;
-    --secondary-color: #00a8ff;
-    --accent-color: #ff5a60;
-    --accent-light: #ff7a80;
-    --success-color: #10b981;
+    /* Nohana Brand Palette */
+    --primary-color: #0077B6;       /* Deep Ocean Blue */
+    --primary-light: #3397D0;
+    --primary-dark: #005F9E;
+    --secondary-color: #4ECDC4;     /* Seafoam Green */
+    --accent-color: #FF6B6B;        /* Sunset Coral */
+    --accent-light: #FF8E8E;
+    --success-color: #4ECDC4;
     --warning-color: #f59e0b;
     --error-color: #ef4444;
     --text-color: #1f2937;
     --text-light: #6b7280;
     --text-lighter: #9ca3af;
     --background-color: #ffffff;
-    --background-light: #f9fafb;
-    --background-lighter: #f3f4f6;
+    --background-light: #FAFBFC;
+    --background-lighter: #F4E1C12e; /* subtle sand tint */
     --border-color: #e5e7eb;
     --border-light: #f3f4f6;
     --border-radius: 12px;

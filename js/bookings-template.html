@@ -1,7 +1,12 @@
-<div class="bookings-page-container">
-    <div class="bookings-header">
-        <h1>Your Bookings</h1>
-        <p class="bookings-subtitle">Manage your upcoming and past boat adventures</p>
+<div class="bookings-page-container surface">
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">Your Bookings</h1>
+            <p class="bookings-subtitle">Manage your upcoming and past boat adventures</p>
+        </div>
+        <div class="header-actions">
+            <a href="#/" data-route="/" class="btn-secondary">Explore boats</a>
+        </div>
     </div>
 
     <div class="bookings-tabs">
@@ -10,7 +15,7 @@
         <button class="tab-btn" data-tab="cancelled">Cancelled</button>
     </div>
 
-    <div class="bookings-content">
+    <div class="bookings-content card-body">
         <div class="tab-content active" id="upcoming-bookings">
             <div class="bookings-list" id="upcoming-bookings-list">
                 <!-- Bookings will be populated here -->

@@ -218,8 +218,21 @@ function showHostDashboard() {
         return;
     }
     
-    // Load host dashboard script if not already loaded
-    loadScript('js/host-dashboard.js')
+    // Get the main content container
+    const mainContent = document.getElementById('main-content');
+    if (!mainContent) {
+        console.error('Main content container not found');
+        toggleLoadingOverlay(false);
+        return;
+    }
+
+    // Load host dashboard template then script
+    fetch('js/host-dashboard-template.html')
+        .then(response => response.text())
+        .then(template => {
+            mainContent.innerHTML = template;
+            return loadScript('js/host-dashboard.js');
+        })
         .then(() => {
             if (typeof initHostDashboard === 'function') {
                 initHostDashboard();
@@ -229,7 +242,7 @@ function showHostDashboard() {
             }
         })
         .catch(error => {
-            console.error('Failed to load host dashboard script:', error);
+            console.error('Failed to load host dashboard:', error);
             navigateToHome();
         });
 }

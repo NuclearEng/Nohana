@@ -1,0 +1,224 @@
+<div class="booking-page-container">
+    <div class="booking-progress">
+        <div class="booking-progress-step" data-step="details">
+            <div class="step-number">1</div>
+            <div class="step-label">Details</div>
+        </div>
+        <div class="booking-progress-line"></div>
+        <div class="booking-progress-step" data-step="payment">
+            <div class="step-number">2</div>
+            <div class="step-label">Payment</div>
+        </div>
+        <div class="booking-progress-line"></div>
+        <div class="booking-progress-step" data-step="confirmation">
+            <div class="step-number">3</div>
+            <div class="step-label">Confirmation</div>
+        </div>
+    </div>
+    
+    <!-- Details Step -->
+    <div class="booking-step-content" data-step="details">
+        <div class="booking-details-container">
+            <div class="booking-form-column">
+                <h2>Book your experience</h2>
+                
+                <div class="booking-form-section">
+                    <h3>Select date</h3>
+                    <div class="booking-date-picker">
+                        <input type="text" id="booking-date-input" placeholder="Select a date" readonly>
+                    </div>
+                </div>
+                
+                <div class="booking-form-section">
+                    <h3>Select time</h3>
+                    <div class="booking-time-options">
+                        <button class="time-option" data-time="10:00">10:00 AM</button>
+                        <button class="time-option" data-time="13:00">1:00 PM</button>
+                        <button class="time-option" data-time="16:00">4:00 PM</button>
+                    </div>
+                </div>
+                
+                <div class="booking-form-section">
+                    <h3>Number of seats</h3>
+                    <div class="booking-seat-selector">
+                        <button class="seat-decrement">-</button>
+                        <div class="seat-count" id="booking-seat-count">1</div>
+                        <button class="seat-increment">+</button>
+                    </div>
+                    <p class="seat-availability">
+                        <i class="fas fa-user"></i>
+                        <span id="booking-available-seats">8</span> seats available
+                    </p>
+                </div>
+                
+                <div class="booking-form-section">
+                    <h3>Special requests (optional)</h3>
+                    <textarea id="booking-special-requests" placeholder="Any special requests or requirements?"></textarea>
+                </div>
+                
+                <div class="booking-form-actions">
+                    <button id="booking-continue-btn" class="btn-primary">Continue to payment</button>
+                </div>
+            </div>
+            
+            <div class="booking-summary-column">
+                <div class="booking-summary-card">
+                    <div class="booking-listing-info">
+                        <div class="booking-listing-image">
+                            <img id="booking-listing-image" src="" alt="Boat image">
+                        </div>
+                        <div class="booking-listing-details">
+                            <h3 id="booking-listing-title"></h3>
+                            <p id="booking-listing-location"></p>
+                            <div class="booking-price">
+                                <span id="booking-price-per-seat"></span> / seat
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="booking-summary-divider"></div>
+                    
+                    <div class="booking-price-summary">
+                        <h4>Price details</h4>
+                        <div class="price-row">
+                            <span>Seats (<span id="booking-seat-summary">1</span>)</span>
+                            <span id="booking-subtotal">$45</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Service fee</span>
+                            <span id="booking-service-fee">$7</span>
+                        </div>
+                        <div class="price-row total">
+                            <span>Total</span>
+                            <span id="booking-total">$52</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Payment Step -->
+    <div class="booking-step-content" data-step="payment">
+        <div class="booking-payment-container">
+            <div class="booking-form-column">
+                <h2>Payment details</h2>
+                
+                <div class="booking-form-section">
+                    <h3>Payment method</h3>
+                    <div class="payment-methods">
+                        <div class="payment-method" data-method="credit-card">
+                            <div class="payment-method-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="payment-method-details">
+                                <h4>Credit Card</h4>
+                                <p>Pay with Visa, Mastercard, or American Express</p>
+                            </div>
+                        </div>
+                        <div class="payment-method" data-method="paypal">
+                            <div class="payment-method-icon">
+                                <i class="fab fa-paypal"></i>
+                            </div>
+                            <div class="payment-method-details">
+                                <h4>PayPal</h4>
+                                <p>Pay with your PayPal account</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Credit Card Form -->
+                <div class="payment-form" data-method="credit-card">
+                    <div class="form-group">
+                        <label for="card-name">Name on card</label>
+                        <input type="text" id="card-name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="card-number">Card number</label>
+                        <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="card-expiry">Expiry date</label>
+                            <input type="text" id="card-expiry" placeholder="MM/YY" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-cvc">CVC</label>
+                            <input type="text" id="card-cvc" placeholder="123" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="billing-zip">Billing ZIP code</label>
+                        <input type="text" id="billing-zip" required>
+                    </div>
+                </div>
+                
+                <!-- PayPal Form -->
+                <div class="payment-form" data-method="paypal">
+                    <div class="paypal-info">
+                        <p>You will be redirected to PayPal to complete your payment after clicking "Confirm and pay".</p>
+                    </div>
+                </div>
+                
+                <div class="booking-form-actions">
+                    <button id="payment-back-btn" class="btn-secondary">Back</button>
+                    <button id="payment-confirm-btn" class="btn-primary">Confirm and pay</button>
+                </div>
+            </div>
+            
+            <div class="booking-summary-column">
+                <div class="booking-summary-card">
+                    <div class="booking-listing-info">
+                        <div class="booking-listing-image">
+                            <img id="payment-listing-image" src="" alt="Boat image">
+                        </div>
+                        <div class="booking-listing-details">
+                            <h3 id="payment-listing-title"></h3>
+                            <p id="payment-listing-location"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="booking-summary-divider"></div>
+                    
+                    <div class="booking-details-summary">
+                        <h4>Booking details</h4>
+                        <div class="detail-row">
+                            <i class="far fa-calendar"></i>
+                            <span id="payment-date"></span>
+                        </div>
+                        <div class="detail-row">
+                            <i class="far fa-clock"></i>
+                            <span id="payment-time"></span>
+                        </div>
+                        <div class="detail-row">
+                            <i class="fas fa-users"></i>
+                            <span id="payment-seats"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="booking-summary-divider"></div>
+                    
+                    <div class="booking-price-summary">
+                        <h4>Price details</h4>
+                        <div class="price-row">
+                            <span>Subtotal</span>
+                            <span id="payment-subtotal"></span>
+                        </div>
+                        <div class="price-row">
+                            <span>Service fee</span>
+                            <span id="payment-service-fee"></span>
+                        </div>
+                        <div class="price-row total">
+                            <span>Total</span>
+                            <span id="payment-total"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

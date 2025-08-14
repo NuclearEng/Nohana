@@ -1,0 +1,181 @@
+/**
+ * WaveSurf Booking Modals Styles
+ */
+
+/* Booking Modal */
+.booking-modal .modal-content {
+    max-width: 550px;
+}
+
+.booking-modal .form-group {
+    margin-bottom: 20px;
+}
+
+.booking-modal label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.booking-modal input[type="date"],
+.booking-modal select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.seats-selector {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.seat-adjust {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: var(--text-color);
+}
+
+.seat-adjust:hover {
+    background: #e0e0e0;
+}
+
+.seats-selector input {
+    flex: 1;
+    text-align: center;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    background: #fff;
+}
+
+.booking-summary {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.booking-summary h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+/* Contact Host Modal */
+.contact-modal .modal-content {
+    max-width: 550px;
+}
+
+.host-info-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.host-info-header img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.host-info-header h4 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+}
+
+.host-info-header p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.contact-modal .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-modal label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.contact-modal select,
+.contact-modal textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.contact-modal textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.error-message {
+    color: #e53935;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.form-actions .btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.form-actions .btn-primary:hover {
+    background-color: #0052cc; /* Darker shade of primary color */
+}
+
+.form-actions .btn-secondary {
+    background-color: #f5f5f5;
+    color: var(--text-color);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.form-actions .btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .booking-modal .modal-content,
+    .contact-modal .modal-content {
+        max-width: 100%;
+        margin: 0 15px;
+    }
+}

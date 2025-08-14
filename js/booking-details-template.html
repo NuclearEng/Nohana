@@ -1,0 +1,118 @@
+<div class="booking-details-container">
+    <div class="back-button">
+        <a href="#/bookings" data-route="/bookings" class="back-link">
+            <i class="fas fa-chevron-left"></i>
+            <span>Back to bookings</span>
+        </a>
+    </div>
+    
+    <div class="booking-details-header">
+        <h1>Booking Details</h1>
+        <div class="booking-reference">
+            Reference: <span id="booking-reference">WAVE-123456</span>
+        </div>
+        <div class="booking-status-container">
+            <span class="status-label">Status:</span>
+            <span id="booking-status" class="status-confirmed">Confirmed</span>
+        </div>
+    </div>
+    
+    <div class="booking-details-content">
+        <div class="booking-details-main">
+            <div class="booking-boat-info">
+                <div class="boat-image-container">
+                    <img id="boat-image" src="" alt="Boat image">
+                </div>
+                <div class="boat-details">
+                    <h2 id="boat-title">Mastercraft X-Star - Perfect for Wakesurfing</h2>
+                    <p id="boat-location">Lake Travis, Austin</p>
+                    <div class="booking-info-grid">
+                        <div class="booking-info-item">
+                            <i class="far fa-calendar"></i>
+                            <div>
+                                <span class="info-label">Date</span>
+                                <span class="info-value" id="booking-date">August 15, 2023</span>
+                            </div>
+                        </div>
+                        <div class="booking-info-item">
+                            <i class="far fa-clock"></i>
+                            <div>
+                                <span class="info-label">Time</span>
+                                <span class="info-value" id="booking-time">10:00 AM</span>
+                            </div>
+                        </div>
+                        <div class="booking-info-item">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <span class="info-label">Guests</span>
+                                <span class="info-value" id="booking-seats">3 seats</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="booking-details-section">
+                <h3>Payment Details</h3>
+                <div class="payment-details">
+                    <div class="payment-item">
+                        <span class="payment-label"><span id="price-per-seat">$45</span> × <span id="number-of-seats">3</span> seats</span>
+                        <span class="payment-value" id="subtotal-amount">$135</span>
+                    </div>
+                    <div class="payment-item">
+                        <span class="payment-label">Service fee</span>
+                        <span class="payment-value" id="service-fee-amount">$20</span>
+                    </div>
+                    <div class="payment-divider"></div>
+                    <div class="payment-item payment-total">
+                        <span class="payment-label">Total paid</span>
+                        <span class="payment-value" id="total-amount">$155</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="booking-details-section">
+                <h3>Meeting Location</h3>
+                <p id="meeting-location-text">Lake Travis Marina Dock #5</p>
+                <div id="meeting-location-map" class="meeting-location-map"></div>
+                <a href="#" class="get-directions-btn">
+                    <i class="fas fa-directions"></i>
+                    <span>Get directions</span>
+                </a>
+            </div>
+            
+            <div class="booking-details-section">
+                <h3>Host Information</h3>
+                <div class="host-info-container">
+                    <div class="host-avatar-container">
+                        <img id="host-avatar" src="images/host-avatar.jpg" alt="Host">
+                    </div>
+                    <div class="host-details-container">
+                        <h4 id="host-name">John</h4>
+                        <p>You can contact your host with any questions about your booking.</p>
+                    </div>
+                    <button class="contact-host-btn">
+                        <i class="far fa-comment-alt"></i>
+                        <span>Contact Host</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="booking-details-section">
+                <h3>Cancellation Policy</h3>
+                <p>Free cancellation up to 48 hours before your booking. After that, a 50% refund is available up to 24 hours before the booking time.</p>
+            </div>
+            
+            <div class="booking-actions">
+                <button id="modify-booking-btn" class="btn-secondary">
+                    <i class="far fa-edit"></i>
+                    <span>Modify booking</span>
+                </button>
+                <button id="cancel-booking-btn" class="btn-danger">
+                    <i class="far fa-times-circle"></i>
+                    <span>Cancel booking</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

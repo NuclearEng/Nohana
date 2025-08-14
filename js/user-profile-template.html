@@ -1,0 +1,112 @@
+<div class="profile-container">
+    <div class="profile-header">
+        <div class="profile-avatar">
+            <img src="images/user-avatar.jpg" alt="User Avatar">
+            <button class="change-photo-btn">
+                <i class="fas fa-camera"></i>
+            </button>
+        </div>
+        <div class="profile-info">
+            <h1>John Smith</h1>
+            <p class="member-since">Member since January 2023</p>
+            <button class="edit-profile-btn">
+                <i class="fas fa-pen"></i>
+                Edit profile
+            </button>
+        </div>
+    </div>
+    
+    <div class="profile-content">
+        <div class="profile-nav">
+            <ul>
+                <li class="nav-item active" data-tab="bookings">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Bookings</span>
+                </li>
+                <li class="nav-item" data-tab="favorites">
+                    <i class="fas fa-heart"></i>
+                    <span>Favorites</span>
+                </li>
+                <li class="nav-item" data-tab="reviews">
+                    <i class="fas fa-star"></i>
+                    <span>Reviews</span>
+                </li>
+                <li class="nav-item" data-tab="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="profile-tab-content" id="bookings-tab">
+            <div class="tab-header">
+                <h2>Your Bookings</h2>
+                <div class="filter-dropdown">
+                    <select id="booking-filter">
+                        <option value="upcoming">Upcoming</option>
+                        <option value="past">Past</option>
+                        <option value="all">All</option>
+                    </select>
+                </div>
+            </div>
+            <div class="bookings-list" id="bookings-list">
+                <!-- Bookings will be loaded here -->
+            </div>
+        </div>
+        
+        <div class="profile-tab-content hidden" id="favorites-tab">
+            <div class="tab-header">
+                <h2>Your Favorites</h2>
+            </div>
+            <div class="favorites-list" id="favorites-list">
+                <!-- Favorites will be loaded here -->
+            </div>
+        </div>
+        
+        <div class="profile-tab-content hidden" id="reviews-tab">
+            <div class="tab-header">
+                <h2>Your Reviews</h2>
+            </div>
+            <div class="reviews-list" id="profile-reviews-list">
+                <!-- Reviews will be loaded here -->
+            </div>
+        </div>
+        
+        <div class="profile-tab-content hidden" id="settings-tab">
+            <div class="tab-header">
+                <h2>Account Settings</h2>
+            </div>
+            <form id="profile-settings-form">
+                <div class="form-section">
+                    <h3>Personal Information</h3>
+                    <div class="form-group">
+                        <label for="profile-name">Name</label>
+                        <input type="text" id="profile-name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-email">Email</label>
+                        <input type="email" id="profile-email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-phone">Phone</label>
+                        <input type="tel" id="profile-phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="profile-address">Address</label>
+                        <input type="text" id="profile-address" name="address">
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3>Security</h3>
+                    <button type="button" class="change-password-btn">Change Password</button>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

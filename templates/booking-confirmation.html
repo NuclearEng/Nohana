@@ -1,0 +1,90 @@
+<div class="booking-confirmation-container">
+    <div class="booking-confirmation-header">
+        <div class="confirmation-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h1>Booking Confirmed!</h1>
+        <p class="booking-reference">Booking reference: <span id="booking-reference">WAVE-123456</span></p>
+    </div>
+    
+    <div class="booking-confirmation-content">
+        <div class="booking-details-card">
+            <div class="booking-details-header">
+                <h2>Your booking details</h2>
+            </div>
+            
+            <div class="booking-details-content">
+                <div class="booking-boat-info">
+                    <div class="boat-image-container">
+                        <img id="boat-image" src="" alt="Boat image">
+                    </div>
+                    <div class="boat-details">
+                        <h3 id="boat-title"></h3>
+                        <p id="boat-location"></p>
+                        <div class="booking-date-time">
+                            <div class="booking-date">
+                                <i class="far fa-calendar"></i>
+                                <span id="booking-date"></span>
+                            </div>
+                            <div class="booking-time">
+                                <i class="far fa-clock"></i>
+                                <span id="booking-time"></span>
+                            </div>
+                            <div class="booking-seats">
+                                <i class="fas fa-users"></i>
+                                <span id="booking-seats"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="booking-price-summary">
+                    <h3>Price details</h3>
+                    <div class="price-item">
+                        <span><span id="price-per-seat"></span> x <span id="number-of-seats"></span> seats</span>
+                        <span>$<span id="subtotal-amount"></span></span>
+                    </div>
+                    <div class="price-item">
+                        <span>Service fee</span>
+                        <span>$<span id="service-fee-amount"></span></span>
+                    </div>
+                    <div class="price-total">
+                        <span>Total</span>
+                        <span>$<span id="total-amount"></span></span>
+                    </div>
+                </div>
+                
+                <div class="booking-meeting-location">
+                    <h3>Meeting location</h3>
+                    <p id="meeting-location-text"></p>
+                    <div id="meeting-location-map" class="meeting-location-map"></div>
+                    <button class="get-directions-btn">
+                        <i class="fas fa-directions"></i>
+                        Get directions
+                    </button>
+                </div>
+                
+                <div class="booking-host-info">
+                    <h3>Your host</h3>
+                    <div class="host-contact">
+                        <div class="host-avatar">
+                            <img src="images/host-avatar.jpg" alt="Host">
+                        </div>
+                        <div class="host-details">
+                            <h4><span id="host-name"></span></h4>
+                            <button class="contact-host-btn">
+                                <i class="fas fa-comment"></i>
+                                Message host
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="booking-actions">
+            <a href="#/" data-route="/" class="btn-secondary">Back to home</a>
+            <a href="#/bookings" data-route="/bookings" class="btn-primary">View all bookings</a>
+        </div>
+    </div>
+</div>

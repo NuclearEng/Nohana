@@ -1,0 +1,42 @@
+{
+  "name": "wavesurf",
+  "version": "1.0.0",
+  "description": "A marketplace application for booking individual seats on boats for water activities",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve -l 5173 .",
+    "dev": "serve -l 5173 .",
+    "test": "echo \"No tests specified yet\" && exit 0"
+  },
+  "keywords": [
+    "boat",
+    "marketplace",
+    "water",
+    "activities",
+    "booking",
+    "seats"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "comment": "These dependencies are for future backend development and are not currently used"
+  },
+  "devDependencies": {
+    "comment": "These devDependencies are for future backend development and are not currently used",
+    "serve": "^14.2.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

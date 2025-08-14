@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WaveSurf - Book Boat Activities</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/reviews.css">
+    <link rel="stylesheet" href="css/booking-details.css">
+    <link rel="stylesheet" href="css/booking-modals.css">
+    <link rel="stylesheet" href="css/bookings.css">
+    <link rel="stylesheet" href="css/become-host.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="#/" data-route="/">
+                        <img src="images/logo.svg" alt="WaveSurf Logo">
+                        <span>WaveSurf</span>
+                    </a>
+                </div>
+                
+                <!-- Search Bar -->
+                <form id="search-form" class="search-bar">
+                    <div class="search-field" data-field="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="search-input-wrapper">
+                            <label>Location</label>
+                            <input type="text" id="location-input" placeholder="Where are you going?" autocomplete="off">
+                        </div>
+                        <div class="search-dropdown location-dropdown" id="location-dropdown">
+                            <div class="dropdown-content">
+                                <div class="popular-locations">
+                                    <h4>Popular Locations</h4>
+                                    <div class="location-item" data-location="Miami Beach">
+                                        <i class="fas fa-location-dot"></i>
+                                        <span>Miami Beach</span>
+                                    </div>
+                                    <div class="location-item" data-location="Lake Travis">
+                                        <i class="fas fa-location-dot"></i>
+                                        <span>Lake Travis</span>
+                                    </div>
+                                    <div class="location-item" data-location="Lake Tahoe">
+                                        <i class="fas fa-location-dot"></i>
+                                        <span>Lake Tahoe</span>
+                                    </div>
+                                    <div class="location-item" data-location="San Diego Bay">
+                                        <i class="fas fa-location-dot"></i>
+                                        <span>San Diego Bay</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="search-field" data-field="date">
+                        <i class="fas fa-calendar"></i>
+                        <div class="search-input-wrapper">
+                            <label>Date</label>
+                            <input type="text" id="date-input" placeholder="Add dates" readonly>
+                        </div>
+                        <div class="search-dropdown date-dropdown" id="date-dropdown">
+                            <div class="dropdown-content">
+                                <div class="date-picker-header">
+                                    <h4>Select dates</h4>
+                                    <button type="button" class="clear-dates" id="clear-dates">Clear</button>
+                                </div>
+                                <div class="date-picker-container" id="date-picker-container">
+                                    <!-- Calendar will be injected here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="search-field" data-field="seats">
+                        <i class="fas fa-users"></i>
+                        <div class="search-input-wrapper">
+                            <label>Seats</label>
+                            <input type="text" id="seats-input" value="1 seat" readonly>
+                        </div>
+                        <div class="search-dropdown seats-dropdown" id="seats-dropdown">
+                            <div class="dropdown-content">
+                                <div class="seats-selector">
+                                    <h4>Number of Seats</h4>
+                                    <div class="seats-counter">
+                                        <button type="button" class="seats-decrement" id="seats-decrement">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <span class="seats-count" id="seats-count">1</span>
+                                        <button type="button" class="seats-increment" id="seats-increment">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                    <p class="seats-info">Select the number of seats you need</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="search-submit">
+                        <i class="fas fa-search"></i>
+                        <span>Search</span>
+                    </button>
+                </form>
+                
+                <!-- User Navigation -->
+                <div class="user-nav">
+                    <a href="#/host" data-route="/host" class="host-link">Become a Captain</a>
+                    <div class="language-selector">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="user-menu">
+                        <i class="fas fa-bars"></i>
+                        <i class="fas fa-user-circle"></i>
+                        <div class="dropdown-menu">
+                            <a href="#" id="login-button">Sign up</a>
+                            <a href="#" id="signup-button">Log in</a>
+                            <hr>
+                            <a href="#/host" data-route="/host">Host your boat</a>
+                            <a href="#/bookings" data-route="/bookings">Your bookings</a>
+                            <a href="#/favorites" data-route="/favorites">Saved boats</a>
+                            <a href="#/account" data-route="/account">Account</a>
+                            <a href="#">Help</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Activity Categories -->
+    <section class="categories">
+        <div class="container">
+            <div class="category-tabs">
+                <a href="#/search?activity=wakesurfing" data-route="/search?activity=wakesurfing" class="category-tab active">
+                    <img src="images/categories/wakesurfing.jpg" alt="Wakesurfing">
+                    <span>Wakesurfing</span>
+                </a>
+                <a href="#/search?activity=fishing" data-route="/search?activity=fishing" class="category-tab">
+                    <img src="images/categories/fishing.jpg" alt="Fishing">
+                    <span>Fishing</span>
+                </a>
+                <a href="#/search?activity=skiing" data-route="/search?activity=skiing" class="category-tab">
+                    <img src="images/categories/skiing.jpg" alt="Water Skiing">
+                    <span>Water Skiing</span>
+                </a>
+                <a href="#/search?activity=wakeboarding" data-route="/search?activity=wakeboarding" class="category-tab">
+                    <img src="images/categories/wakeboarding.jpg" alt="Wakeboarding">
+                    <span>Wakeboarding</span>
+                </a>
+                <a href="#/search?activity=cruising" data-route="/search?activity=cruising" class="category-tab">
+                    <img src="images/categories/cruising.jpg" alt="Cruising">
+                    <span>Cruising</span>
+                </a>
+                <a href="#/search?activity=party" data-route="/search?activity=party" class="category-tab">
+                    <img src="images/categories/party.jpg" alt="Party Boats">
+                    <span>Party Boats</span>
+                </a>
+            </div>
+            <div class="filter-options">
+                <button class="filter-button">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Filters</span>
+                </button>
+                <div class="filter-tag">
+                    <span>Lake access</span>
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="filter-tag">
+                    <span>Gear included</span>
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="sort-dropdown">
+                    <span>Sort: Price (lowest first)</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+        <div class="container">
+            <div class="content-container">
+                <!-- Listings Section -->
+                <section class="listings">
+                    <h2 class="visually-hidden">Boat Listings</h2>
+                    
+                    <!-- Individual Listing -->
+                    <div class="listing-card" data-listing-id="listing-1">
+                        <a href="#/listing/listing-1" data-route="/listing/listing-1" class="listing-link">
+                            <div class="listing-images">
+                                <div class="image-slider">
+                                    <img src="images/listings/boat1-1.jpg" alt="Mastercraft X-Star">
+                                    <div class="slider-controls">
+                                        <button class="prev"><i class="fas fa-chevron-left"></i></button>
+                                        <button class="next"><i class="fas fa-chevron-right"></i></button>
+                                    </div>
+                                    <div class="slider-dots">
+                                        <span class="dot active"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="listing-info">
+                                <div class="listing-header">
+                                    <h3>Mastercraft X-Star - Perfect for Wakesurfing</h3>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <span>4.98</span>
+                                        <span class="reviews">(43)</span>
+                                    </div>
+                                </div>
+                                <p class="listing-description">Lake Travis, Texas</p>
+                                <p class="listing-details">Up to 8 guests • Captain included • Wakesurfing gear</p>
+                                <div class="listing-price">
+                                    <span class="price">$45</span> / seat
+                                </div>
+                                <div class="seat-availability">
+                                    <i class="fas fa-user"></i> <span class="available-seats">5</span> seats available
+                                </div>
+                            </div>
+                        </a>
+                        <button class="favorite" aria-label="Add to favorites"><i class="far fa-heart"></i></button>
+                    </div>
+
+                    <!-- Another Listing -->
+                    <div class="listing-card" data-listing-id="listing-2">
+                        <a href="#/listing/listing-2" data-route="/listing/listing-2" class="listing-link">
+                            <div class="listing-images">
+                                <div class="image-slider">
+                                    <img src="images/listings/boat2-1.jpg" alt="Malibu Wakesetter">
+                                    <div class="slider-controls">
+                                        <button class="prev"><i class="fas fa-chevron-left"></i></button>
+                                        <button class="next"><i class="fas fa-chevron-right"></i></button>
+                                    </div>
+                                    <div class="slider-dots">
+                                        <span class="dot active"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="listing-info">
+                                <div class="listing-header">
+                                    <h3>Malibu Wakesetter - Best Wake in Austin</h3>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <span>4.92</span>
+                                        <span class="reviews">(78)</span>
+                                    </div>
+                                </div>
+                                <p class="listing-description">Lake Austin, Texas</p>
+                                <p class="listing-details">Up to 10 guests • All equipment included</p>
+                                <div class="listing-price">
+                                    <span class="price">$55</span> / seat
+                                </div>
+                                <div class="seat-availability">
+                                    <i class="fas fa-user"></i> <span class="available-seats">7</span> seats available
+                                </div>
+                            </div>
+                        </a>
+                        <button class="favorite" aria-label="Add to favorites"><i class="far fa-heart"></i></button>
+                    </div>
+
+                    <!-- More Listings (repeating for the example) -->
+                    <div class="listing-card" data-listing-id="listing-3">
+                        <a href="#/listing/listing-3" data-route="/listing/listing-3" class="listing-link">
+                            <div class="listing-images">
+                                <div class="image-slider">
+                                    <img src="images/listings/boat3-1.jpg" alt="Fishing Boat">
+                                    <div class="slider-controls">
+                                        <button class="prev"><i class="fas fa-chevron-left"></i></button>
+                                        <button class="next"><i class="fas fa-chevron-right"></i></button>
+                                    </div>
+                                    <div class="slider-dots">
+                                        <span class="dot active"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="listing-info">
+                                <div class="listing-header">
+                                    <h3>Pro Bass Fishing Boat with Guide</h3>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <span>4.89</span>
+                                        <span class="reviews">(56)</span>
+                                    </div>
+                                </div>
+                                <p class="listing-description">Lake Conroe, Houston</p>
+                                <p class="listing-details">Professional guide • All fishing equipment</p>
+                                <div class="listing-price">
+                                    <span class="price">$35</span> / seat
+                                </div>
+                                <div class="seat-availability">
+                                    <i class="fas fa-user"></i> <span class="available-seats">3</span> seats available
+                                </div>
+                            </div>
+                        </a>
+                        <button class="favorite" aria-label="Add to favorites"><i class="far fa-heart"></i></button>
+                    </div>
+                </section>
+
+                <!-- Map Section -->
+                <section class="map-container">
+                    <div id="map" class="map">
+                        <!-- Map will be loaded with JavaScript -->
+                    </div>
+                    <button class="show-list">
+                        <span>Show list</span>
+                        <i class="fas fa-list"></i>
+                    </button>
+                    <button class="map-controls zoom-in">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <button class="map-controls zoom-out">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="/help">Help Center</a></li>
+                        <li><a href="/safety">Safety information</a></li>
+                        <li><a href="/cancellation">Cancellation options</a></li>
+                        <li><a href="/covid">COVID-19 Response</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="/community">WaveSurf community</a></li>
+                        <li><a href="/referrals">Referral program</a></li>
+                        <li><a href="/forum">Forum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Hosting</h4>
+                    <ul>
+                        <li><a href="/host">Host your boat</a></li>
+                        <li><a href="/host-resources">Host resources</a></li>
+                        <li><a href="/community-forum">Community forum</a></li>
+                        <li><a href="/responsible-hosting">Responsible hosting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="/about">About us</a></li>
+                        <li><a href="/news">News</a></li>
+                        <li><a href="/investors">Investors</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <span>&copy; 2023 WaveSurf, Inc.</span>
+                    <a href="/privacy">Privacy</a>
+                    <a href="/terms">Terms</a>
+                    <a href="/sitemap">Sitemap</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="footer-language">
+                    <i class="fas fa-globe"></i>
+                    <span>English (US)</span>
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>USD</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for filters -->
+    <div class="modal filter-modal" id="filterModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+                <h3>Filters</h3>
+            </div>
+            <div class="modal-body">
+                <div class="filter-group">
+                    <h4>Price range</h4>
+                    <div class="price-range">
+                        <div class="range-slider">
+                            <input type="range" min="50" max="500" value="50" class="range-min">
+                            <input type="range" min="50" max="500" value="500" class="range-max">
+                        </div>
+                        <div class="price-inputs">
+                            <div class="price-input">
+                                <label for="min-price">Min price</label>
+                                <div class="input-container">
+                                    <span class="currency">$</span>
+                                    <input type="number" id="min-price" value="50">
+                                </div>
+                            </div>
+                            <div class="price-input">
+                                <label for="max-price">Max price</label>
+                                <div class="input-container">
+                                    <span class="currency">$</span>
+                                    <input type="number" id="max-price" value="500">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Number of seats</h4>
+                    <div class="seat-selector">
+                        <button class="seat-decrement">-</button>
+                        <div class="seat-count">2</div>
+                        <button class="seat-increment">+</button>
+                    </div>
+                    <div class="seat-label">Select how many seats you need</div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Activity type</h4>
+                    <div class="checkbox-group">
+                        <label class="checkbox">
+                            <input type="checkbox" name="activity" value="wakesurfing">
+                            <span>Wakesurfing</span>
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="activity" value="fishing">
+                            <span>Fishing</span>
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="activity" value="skiing">
+                            <span>Water Skiing</span>
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="activity" value="wakeboarding">
+                            <span>Wakeboarding</span>
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="activity" value="cruising">
+                            <span>Cruising</span>
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="activity" value="party">
+                            <span>Party Boats</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Amenities</h4>
+                    <div class="checkbox-group">
+                        <label class="checkbox">
+                            <input type="checkbox" name="amenities" value="captain">
+                            <span>Captain included</span>
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="amenities" value="equipment">
+                            <span>Equipment included</span>
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="amenities" value="bluetooth">
+                            <span>Bluetooth audio</span>
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="amenities" value="bathroom">
+                            <span>Bathroom on board</span>
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" name="amenities" value="cooler">
+                            <span>Cooler/refrigerator</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="clear-filters">Clear all</button>
+                <button class="apply-filters">Show results</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login/Signup Modal -->
+    <div class="modal auth-modal" id="authModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+                <h3 id="auth-title">Log in or sign up</h3>
+            </div>
+            <div class="modal-body">
+                <h4 class="welcome-text">Welcome to WaveSurf</h4>
+                
+                <!-- Tab Navigation -->
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="signup">Sign up</button>
+                </div>
+                
+                <!-- Login Form -->
+                <form id="login-form" class="auth-form active">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" required placeholder="Enter your email">
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required placeholder="Enter your password">
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox">
+                            <input type="checkbox" name="remember-me">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn-primary full-width">Log in</button>
+                </form>
+                
+                <!-- Signup Form -->
+                <form id="signup-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" required placeholder="Enter your full name">
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" required placeholder="Enter your email">
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" required placeholder="Create a password">
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-confirm-password">Confirm Password</label>
+                        <input type="password" id="signup-confirm-password" required placeholder="Confirm your password">
+                        <span class="error-message"></span>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox">
+                            <input type="checkbox" name="terms" required>
+                            <span>I agree to the <a href="/terms" class="terms-link">Terms and Conditions</a></span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary full-width">Sign up</button>
+                </form>
+                
+                <!-- Social Login Options -->
+                <div class="social-login">
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+                    <button class="social-btn google-btn">
+                        <i class="fab fa-google"></i>
+                        <span>Continue with Google</span>
+                    </button>
+                    <button class="social-btn facebook-btn">
+                        <i class="fab fa-facebook-f"></i>
+                        <span>Continue with Facebook</span>
+                    </button>
+                    <button class="social-btn apple-btn">
+                        <i class="fab fa-apple"></i>
+                        <span>Continue with Apple</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Loading Overlay -->
+    <div id="page-loading" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner"></div>
+        <div class="loading-message">Loading...</div>
+    </div>
+    
+    <!-- Review Modal -->
+<div class="modal review-modal" id="reviewModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <h3 id="review-modal-title">Write a review</h3>
+        </div>
+        <div class="modal-body">
+            <form id="review-form">
+                <input type="hidden" id="review-id" name="review-id">
+                <input type="hidden" id="listing-id" name="listing-id">
+                <input type="hidden" id="listing-title" name="listing-title">
+                
+                <div class="form-group">
+                    <label for="review-rating">Rating</label>
+                    <div class="rating-input">
+                        <div class="star-rating">
+                            <i class="far fa-star" data-rating="1"></i>
+                            <i class="far fa-star" data-rating="2"></i>
+                            <i class="far fa-star" data-rating="3"></i>
+                            <i class="far fa-star" data-rating="4"></i>
+                            <i class="far fa-star" data-rating="5"></i>
+                        </div>
+                        <input type="hidden" id="review-rating" name="rating" required>
+                        <div class="rating-text">Select a rating</div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="review-comment">Your review</label>
+                    <textarea id="review-comment" name="comment" rows="5" placeholder="Share your experience with this boat and host" required></textarea>
+                    <span class="error-message"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="review-photos">Add photos (optional)</label>
+                    <div class="photo-upload-container">
+                        <div class="photo-upload-button">
+                            <i class="fas fa-camera"></i>
+                            <span>Upload photos</span>
+                            <input type="file" id="review-photos" name="photos" multiple accept="image/*" class="photo-input">
+                        </div>
+                        <div class="photo-preview-container" id="photo-preview"></div>
+                    </div>
+                    <p class="photo-tip">Add up to 5 photos to show your experience</p>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary cancel-review-btn">Cancel</button>
+                    <button type="submit" class="btn-primary submit-review-btn">Submit review</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modify Booking Modal -->
+<div class="modal booking-modal" id="modifyBookingModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <h3>Modify Booking</h3>
+        </div>
+        <div class="modal-body">
+            <form id="modify-booking-form">
+                <input type="hidden" id="booking-id" name="booking-id">
+                
+                <div class="form-group">
+                    <label for="modify-date">Date</label>
+                    <input type="date" id="modify-date" name="date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="modify-time">Time</label>
+                    <select id="modify-time" name="time" required>
+                        <option value="">Select a time</option>
+                        <option value="8:00 AM">8:00 AM</option>
+                        <option value="9:00 AM">9:00 AM</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="11:00 AM">11:00 AM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="1:00 PM">1:00 PM</option>
+                        <option value="2:00 PM">2:00 PM</option>
+                        <option value="3:00 PM">3:00 PM</option>
+                        <option value="4:00 PM">4:00 PM</option>
+                        <option value="5:00 PM">5:00 PM</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="modify-seats">Number of Seats</label>
+                    <div class="seats-selector">
+                        <button type="button" class="seat-adjust" data-action="decrease">-</button>
+                        <input type="number" id="modify-seats" name="seats" min="1" max="10" value="1" readonly>
+                        <button type="button" class="seat-adjust" data-action="increase">+</button>
+                    </div>
+                </div>
+                
+                <div class="booking-summary">
+                    <h4>Updated Price</h4>
+                    <div class="price-breakdown">
+                        <div class="price-item">
+                            <span><span id="modify-price-per-seat">$45</span> × <span id="modify-number-of-seats">1</span> seats</span>
+                            <span id="modify-subtotal">$45</span>
+                        </div>
+                        <div class="price-item">
+                            <span>Service fee</span>
+                            <span id="modify-service-fee">$10</span>
+                        </div>
+                        <div class="price-total">
+                            <span>Total</span>
+                            <span id="modify-total">$55</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary cancel-modify-btn">Cancel</button>
+                    <button type="submit" class="btn-primary submit-modify-btn">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Host Modal -->
+<div class="modal contact-modal" id="contactHostModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <h3>Contact Host</h3>
+        </div>
+        <div class="modal-body">
+            <div class="host-info-header">
+                <img id="contact-host-avatar" src="images/host-avatar.jpg" alt="Host">
+                <div>
+                    <h4 id="contact-host-name">John</h4>
+                    <p>Typically responds within 1 hour</p>
+                </div>
+            </div>
+            
+            <form id="contact-host-form">
+                <input type="hidden" id="contact-booking-id" name="booking-id">
+                
+                <div class="form-group">
+                    <label for="message-subject">Subject</label>
+                    <select id="message-subject" name="subject" required>
+                        <option value="">Select a subject</option>
+                        <option value="question">Question about the booking</option>
+                        <option value="change">Request to change booking</option>
+                        <option value="cancel">Request to cancel booking</option>
+                        <option value="arrival">Arrival information</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message-text">Message</label>
+                    <textarea id="message-text" name="message" rows="5" placeholder="Type your message here..." required></textarea>
+                    <span class="error-message"></span>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary cancel-contact-btn">Cancel</button>
+                    <button type="submit" class="btn-primary send-message-btn">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <!-- JavaScript -->
+    <script src="https://unpkg.com/navigo@8.11.1/lib/navigo.min.js"></script>
+    <script src="js/templates.js"></script>
+    <!-- Google Maps will be loaded on-demand by booking-details.js -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="js/auth-service.js"></script>
+    <script src="js/favorites-service.js"></script>
+    <script src="js/booking-confirmation.js"></script>
+    <script src="js/reviews-service.js"></script>
+    <script src="js/booking-verification.js"></script>
+    <script src="js/messaging-service.js"></script>
+    <script src="js/review-modal.js"></script>
+    <script src="js/host-response-modal.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/search-bar.js"></script>
+    <script src="js/ui-enhancements.js"></script>
+    <!-- Additional scripts will be loaded dynamically as needed -->
+    <!-- <script src="js/listing-detail.js"></script> -->
+    <!-- <script src="js/favorites-page.js"></script> -->
+    <!-- <script src="js/booking-page.js"></script> -->
+</body>
+</html>

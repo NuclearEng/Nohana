@@ -1,0 +1,11 @@
+{
+  "rules": [
+    {
+      "name": "Update Project Plan",
+      "description": "Any new features or structural changes must be reflected in the Projectplan.md file",
+      "regex": "(feature|enhancement|implement|add|create|build)",
+      "ignoreCase": true,
+      "suggestedAction": "Update the Projectplan.md file to include details about the new feature or change"
+    }
+  ]
+}

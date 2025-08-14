@@ -1,0 +1,269 @@
+<div class="listing-detail-container">
+    <!-- Back Button -->
+    <div class="back-button">
+        <a href="#/" data-route="/" class="back-link">
+            <i class="fas fa-chevron-left"></i>
+            Back to search
+        </a>
+    </div>
+    
+    <!-- Listing Gallery -->
+    <div class="listing-gallery">
+        <div class="main-image">
+            <img src="" alt="" id="gallery-main-image">
+            <button class="gallery-nav prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="gallery-nav next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="thumbnail-container">
+            <div class="thumbnail active" data-index="0">
+                <img src="" alt="" class="thumbnail-img">
+            </div>
+            <div class="thumbnail" data-index="1">
+                <img src="" alt="" class="thumbnail-img">
+            </div>
+            <div class="thumbnail" data-index="2">
+                <img src="" alt="" class="thumbnail-img">
+            </div>
+            <div class="thumbnail" data-index="3">
+                <img src="" alt="" class="thumbnail-img">
+            </div>
+            <button class="view-all-photos">
+                <i class="fas fa-th"></i>
+                Show all photos
+            </button>
+        </div>
+    </div>
+    
+    <!-- Listing Content -->
+    <div class="listing-content">
+        <!-- Left Column: Details -->
+        <div class="listing-details-column">
+            <div class="listing-header">
+                <h1 id="listing-title"></h1>
+                <div class="listing-meta">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span id="listing-rating"></span>
+                        <span class="reviews" id="listing-reviews"></span>
+                    </div>
+                    <div class="location" id="listing-location"></div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <div class="host-info">
+                <div class="host-avatar">
+                    <img src="images/host-avatar.jpg" alt="Host">
+                </div>
+                <div class="host-details">
+                    <h3>Boat hosted by <span id="host-name">John</span></h3>
+                    <p>Professional Captain • 5 years experience</p>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <div class="boat-highlights">
+                <h2>Boat highlights</h2>
+                <div class="highlights-grid">
+                    <div class="highlight-item">
+                        <i class="fas fa-ship"></i>
+                        <div class="highlight-text">
+                            <h4 id="boat-type"></h4>
+                            <p>Boat type</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-users"></i>
+                        <div class="highlight-text">
+                            <h4 id="boat-capacity"></h4>
+                            <p>Maximum capacity</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-ruler"></i>
+                        <div class="highlight-text">
+                            <h4 id="boat-length"></h4>
+                            <p>Boat length</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <div class="highlight-text">
+                            <h4 id="boat-power"></h4>
+                            <p>Engine power</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <div class="boat-description">
+                <h2>About this boat</h2>
+                <p id="boat-description"></p>
+                <button class="show-more-btn">Show more</button>
+            </div>
+            
+            <hr class="divider">
+            
+            <div class="activities-section">
+                <h2>What you can do</h2>
+                <div class="activities-grid" id="activities-grid">
+                    <!-- Activities will be inserted here dynamically -->
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <div class="amenities-section">
+                <h2>What's included</h2>
+                <div class="amenities-grid" id="amenities-grid">
+                    <!-- Amenities will be inserted here dynamically -->
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <div class="location-section">
+                <h2>Location</h2>
+                <p id="location-description"></p>
+                <div class="location-map" id="location-map"></div>
+            </div>
+            
+            <hr class="divider">
+            
+            <div class="reviews-section">
+                <div class="reviews-header">
+                    <h2>Reviews</h2>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <span id="reviews-rating"></span>
+                        <span class="reviews" id="reviews-count"></span>
+                    </div>
+                </div>
+                
+                <div class="review-categories">
+                    <div class="review-category">
+                        <span>Safety</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" style="width: 90%;"></div>
+                        </div>
+                        <span>4.5</span>
+                    </div>
+                    <div class="review-category">
+                        <span>Cleanliness</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" style="width: 98%;"></div>
+                        </div>
+                        <span>4.9</span>
+                    </div>
+                    <div class="review-category">
+                        <span>Experience</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" style="width: 94%;"></div>
+                        </div>
+                        <span>4.7</span>
+                    </div>
+                    <div class="review-category">
+                        <span>Value</span>
+                        <div class="rating-bar">
+                            <div class="rating-fill" style="width: 88%;"></div>
+                        </div>
+                        <span>4.4</span>
+                    </div>
+                </div>
+                
+                <div class="reviews-list" id="reviews-list">
+                    <!-- Reviews will be inserted here dynamically -->
+                </div>
+                
+                <button class="show-all-reviews">Show all reviews</button>
+            </div>
+        </div>
+        
+        <!-- Right Column: Booking -->
+        <div class="booking-column">
+            <div class="booking-card">
+                <div class="booking-header">
+                    <div class="booking-price">
+                        <span class="price" id="booking-price"></span> / seat
+                    </div>
+                    <div class="booking-rating">
+                        <i class="fas fa-star"></i>
+                        <span id="booking-rating"></span>
+                        <span class="reviews" id="booking-reviews"></span>
+                    </div>
+                </div>
+                
+                <div class="booking-form">
+                    <div class="date-picker">
+                        <h3>Select date</h3>
+                        <div class="date-selector">
+                            <input type="date" id="booking-date" min="" required>
+                        </div>
+                    </div>
+                    
+                    <div class="time-selector">
+                        <h3>Available time slots</h3>
+                        <div class="time-options">
+                            <button class="time-option" data-time="10:00">10:00 AM</button>
+                            <button class="time-option" data-time="13:00">1:00 PM</button>
+                            <button class="time-option" data-time="16:00">4:00 PM</button>
+                        </div>
+                    </div>
+                    
+                    <div class="seat-selector-container">
+                        <h3>Number of seats</h3>
+                        <div class="seat-selector-booking">
+                            <button class="seat-decrement">-</button>
+                            <div class="seat-count" id="booking-seat-count">1</div>
+                            <button class="seat-increment">+</button>
+                        </div>
+                        <div class="seat-availability-info">
+                            <i class="fas fa-user"></i>
+                            <span id="available-seats"></span> seats available for this time
+                        </div>
+                    </div>
+                    
+                    <div class="booking-summary">
+                        <div class="summary-item">
+                            <span class="summary-label">$<span id="seat-price"></span> x <span id="seat-count-summary">1</span> seats</span>
+                            <span class="summary-value">$<span id="subtotal">0</span></span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Service fee</span>
+                            <span class="summary-value">$<span id="service-fee">0</span></span>
+                        </div>
+                        <div class="summary-divider"></div>
+                        <div class="summary-item total">
+                            <span class="summary-label">Total</span>
+                            <span class="summary-value">$<span id="total-price">0</span></span>
+                        </div>
+                    </div>
+                    
+                    <button class="book-now-btn" id="book-now-btn">Book now</button>
+                    <p class="booking-note">You won't be charged yet</p>
+                </div>
+                
+                <div class="report-listing">
+                    <i class="fas fa-flag"></i>
+                    <span>Report this listing</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Similar Listings -->
+    <div class="similar-listings-section">
+        <h2>Similar boats you may like</h2>
+        <div class="similar-listings-grid" id="similar-listings-grid">
+            <!-- Similar listings will be inserted here dynamically -->
+        </div>
+    </div>
+</div>

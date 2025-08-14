@@ -27,7 +27,16 @@ A marketplace application for booking individual seats on boats for wakesurfing,
 
 1. Clone the repository
 2. Open `index.html` in your web browser
-3. The Google Maps API key is already configured for demo purposes
+3. Configure Google Maps (optional):
+   Inject your API key at runtime without committing it:
+   
+   ```html
+   <!-- index.html -->
+   <script>
+     window.__CONFIG__ = window.__CONFIG__ || {};
+     // window.__CONFIG__.GOOGLE_MAPS_API_KEY = '<injected-at-deploy>';
+   </script>
+   ```
 
 ## Navigation
 

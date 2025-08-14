@@ -267,7 +267,9 @@ function initMeetingLocationMap(coordinates) {
     // Function to use a static map as fallback
     const useStaticMap = function() {
         mapElement.innerHTML = '';  // Clear any loading message
-        mapElement.style.backgroundImage = `url("https://maps.googleapis.com/maps/api/staticmap?center=${coordinates.lat},${coordinates.lng}&zoom=15&size=600x300&maptype=roadmap&markers=color:blue%7C${coordinates.lat},${coordinates.lng}&key=AIzaSyDtHKuqFb3th2p8ACTxUi7gCTdXGauiP3Y")`;
+        const key = window.__CONFIG__?.GOOGLE_MAPS_API_KEY || '';
+        const keyParam = key ? `&key=${key}` : '';
+        mapElement.style.backgroundImage = `url("https://maps.googleapis.com/maps/api/staticmap?center=${coordinates.lat},${coordinates.lng}&zoom=15&size=600x300&maptype=roadmap&markers=color:blue%7C${coordinates.lat},${coordinates.lng}${keyParam}")`;
         mapElement.style.backgroundSize = 'cover';
         mapElement.style.backgroundPosition = 'center';
         
@@ -304,7 +306,8 @@ function initMeetingLocationMap(coordinates) {
         // Try to load Google Maps if not already loading
         if (!document.querySelector('script[src*="maps.googleapis.com/maps/api/js"]')) {
             const script = document.createElement('script');
-            script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDtHKuqFb3th2p8ACTxUi7gCTdXGauiP3Y&libraries=places&callback=initGoogleMapsCallback';
+            const key = window.__CONFIG__?.GOOGLE_MAPS_API_KEY || '';
+            script.src = `https://maps.googleapis.com/maps/api/js?libraries=places&callback=initGoogleMapsCallback${key ? `&key=${key}` : ''}`;
             script.async = true;
             script.defer = true;
             document.head.appendChild(script);

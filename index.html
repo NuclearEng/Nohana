@@ -790,6 +790,11 @@
     <script src="js/host-response-modal.js"></script>
     <script src="js/main.js"></script>
     <script src="js/router.js"></script>
+    <script>
+      // Basic runtime config; inject a key via env replacement in deployment if available
+      window.__CONFIG__ = window.__CONFIG__ || {};
+      // window.__CONFIG__.GOOGLE_MAPS_API_KEY = '<injected-at-deploy>'; // do not commit secrets
+    </script>
     <script src="js/search-bar.js"></script>
     <script src="js/ui-enhancements.js"></script>
     <!-- Additional scripts will be loaded dynamically as needed -->

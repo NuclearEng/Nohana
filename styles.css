@@ -231,10 +231,9 @@ button {
 }
 
 .logo a {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     color: var(--primary-color);
-    font-size: 26px;
     transition: transform 0.3s ease;
 }
 
@@ -243,8 +242,7 @@ button {
 }
 
 .logo img {
-    height: 32px;
-    margin-right: 8px;
+    height: 42px; /* increase logo size */
 }
 
 /* Search Bar */

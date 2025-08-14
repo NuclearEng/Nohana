@@ -1,4 +1,4 @@
-## Nohana Frontend Architecture and API/URL Map
+# Nohana Frontend Architecture and API/URL Map
 
 ### Overview
 Nohana is a single-page application (SPA) built with plain HTML/CSS/JavaScript. Client-side routing is powered by Navigo. UI is componentized by page-level scripts and a lightweight template system. The application is fully static and served locally at `http://localhost:5173`.
@@ -21,7 +21,7 @@ Nohana is a single-page application (SPA) built with plain HTML/CSS/JavaScript. 
 ### Client-Side Routes
 Defined in `js/router.js` using Navigo:
 
-```
+```text
 /                             → Home
 /search                       → Search results
 /listing/:id                  → Listing detail
@@ -54,7 +54,7 @@ Supported query parameters (observed in code and templates):
 ### Dynamic Template Loading
 `js/router.js` uses `fetch()` to load HTML templates as needed:
 
-```
+```text
 js/search-results-template.html
 js/become-host-template.html
 js/user-profile-template.html
@@ -112,7 +112,7 @@ These services are exposed on `window.*` where needed for simple global access.
 - No backend API required (mock data + templates)
 
 ### Quick Route/URL Reference
-```
+```text
 Routes:
   /, /search, /listing/:id, /host, /become-host,
   /bookings, /favorites, /account, /booking/:id,

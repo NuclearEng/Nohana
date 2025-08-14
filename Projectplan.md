@@ -92,8 +92,8 @@ Nohana is a marketplace platform for booking individual seats on boats for vario
   - Social media sharing of booked experiences
   - Friend referral system with rewards
   - Activity community forums
-  -Creator Economy
-  -Sell Lessons
+- Creator Economy
+- Sell Lessons
 
 - **Mobile Experience**
   - Native iOS and Android applications

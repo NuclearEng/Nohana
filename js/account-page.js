@@ -199,7 +199,7 @@ function loadBookings(filter = 'upcoming') {
         bookingCard.className = 'booking-card';
         bookingCard.innerHTML = `
             <div class="booking-card-image">
-                <img src="${booking.image}" alt="${booking.title}">
+                <img src="${booking.image}" alt="${booking.title}" onerror="this.onerror=null;this.src='images/placeholder.svg'">
             </div>
             <div class="booking-card-content">
                 <h3 class="booking-card-title">${booking.title}</h3>
@@ -292,7 +292,7 @@ function loadFavorites() {
             <a href="#/listing/${favorite.id}" data-route="/listing/${favorite.id}" class="listing-link">
                 <div class="listing-images">
                     <div class="image-slider">
-                        <img src="${favorite.image}" alt="${favorite.title}">
+                        <img src="${favorite.image}" alt="${favorite.title}" onerror="this.onerror=null;this.src='images/placeholder.svg'">
                     </div>
                 </div>
                 <div class="listing-info">

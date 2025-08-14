@@ -54,7 +54,7 @@
             // Create HTML
             conversationItem.innerHTML = `
                 <div class="conversation-header">
-                    <img src="${conversation.user.avatar}" alt="${conversation.user.name}" class="conversation-avatar">
+                    <img src="${conversation.user.avatar}" alt="${conversation.user.name}" class="conversation-avatar" onerror="this.onerror=null;this.src='images/user-avatar.jpg'">
                     <div class="conversation-info">
                         <div class="conversation-name">${conversation.user.name}</div>
                         <div class="conversation-time">${lastMessageTime}</div>
@@ -138,7 +138,7 @@
         
         // Set header
         messagesHeader.innerHTML = `
-            <img src="${user.avatar}" alt="${user.name}" class="messages-header-avatar">
+            <img src="${user.avatar}" alt="${user.name}" class="messages-header-avatar" onerror="this.onerror=null;this.src='images/user-avatar.jpg'">
             <div class="messages-header-info">
                 <h3>${user.name}</h3>
                 <p>Active now</p>

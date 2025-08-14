@@ -1,5 +1,6 @@
 // Initialize the map
 window.initMap = function() {
+    let map; // ensure map is function-scoped for later handlers
     try {
         // Check if Google Maps Advanced Markers is available
         const useAdvancedMarkers = typeof google?.maps?.marker?.AdvancedMarkerElement === 'function';
@@ -14,7 +15,7 @@ window.initMap = function() {
             return;
         }
 
-        const map = new google.maps.Map(mapContainer, {
+        map = new google.maps.Map(mapContainer, {
             center: center,
             zoom: 12,
             disableDefaultUI: true,

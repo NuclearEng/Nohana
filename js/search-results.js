@@ -1,5 +1,5 @@
 /**
- * Search Results Page for WaveSurf
+ * Search Results Page for Nohana
  */
 
 // Sample listing data for demonstration
@@ -60,7 +60,7 @@ function initSearchResults() {
     
     // Set page title based on activity
     if (activity) {
-        document.title = `${capitalizeFirstLetter(activity)} Boats - WaveSurf`;
+        document.title = `${capitalizeFirstLetter(activity)} Boats - Nohana`;
         
         // Set active category tab
         const categoryTabs = document.querySelectorAll('.category-tab');
@@ -69,7 +69,7 @@ function initSearchResults() {
             tab.classList.toggle('active', tabActivity === activity);
         });
     } else {
-        document.title = 'Search Results - WaveSurf';
+        document.title = 'Search Results - Nohana';
     }
     
     // Filter listings based on activity using ListingsService if available

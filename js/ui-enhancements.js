@@ -256,7 +256,7 @@ function initUIEnhancements() {
     
     // Show welcome notification
     setTimeout(() => {
-        showNotification('Welcome to WaveSurf! 🌊', 'success', 4000);
+        showNotification('Welcome to Nohana! 🌊', 'success', 4000);
     }, 1000);
 }
 

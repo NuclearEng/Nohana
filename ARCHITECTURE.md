@@ -1,7 +1,7 @@
-## WaveSurf Frontend Architecture and API/URL Map
+## Nohana Frontend Architecture and API/URL Map
 
 ### Overview
-WaveSurf is a single-page application (SPA) built with plain HTML/CSS/JavaScript. Client-side routing is powered by Navigo. UI is componentized by page-level scripts and a lightweight template system. The application is fully static and served locally at `http://localhost:5173`.
+Nohana is a single-page application (SPA) built with plain HTML/CSS/JavaScript. Client-side routing is powered by Navigo. UI is componentized by page-level scripts and a lightweight template system. The application is fully static and served locally at `http://localhost:5173`.
 
 - **Routing**: Navigo (hash-based) in `js/router.js`
 - **Templates**: Inline HTML templates (e.g., `js/templates.js`, `js/*-template.html`) dynamically injected into `#main-content`

@@ -1,7 +1,7 @@
-# WaveSurf - Boat Seat Booking Marketplace Project Plan
+# Nohana - Boat Seat Booking Marketplace Project Plan
 
 ## Overview
-WaveSurf is a marketplace platform for booking individual seats on boats for various water activities including wakesurfing, fishing, skiing, wakeboarding, and general cruising. The platform follows a similar structure to Airbnb but specializes in water activities with a focus on per-seat booking rather than entire boat rentals.
+Nohana is a marketplace platform for booking individual seats on boats for various water activities including wakesurfing, fishing, skiing, wakeboarding, and general cruising. The platform follows a similar structure to Airbnb but specializes in water activities with a focus on per-seat booking rather than entire boat rentals.
 
 ## Core Features
 

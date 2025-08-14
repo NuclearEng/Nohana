@@ -1,4 +1,4 @@
-// Router for WaveSurf Application
+// Router for Nohana Application
 let waveRouter;
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -77,7 +77,7 @@ function navigateToHome() {
  */
 function showHomePage() {
     console.log('Home page loaded');
-    document.title = 'WaveSurf - Book Boat Activities';
+    document.title = 'Nohana - Book Boat Activities';
     
     // Get the main content container
     const mainContent = document.getElementById('main-content');
@@ -113,7 +113,7 @@ function showHomePage() {
  */
 function showSearchResults() {
     console.log('Search results page loaded');
-    document.title = 'Search Results - WaveSurf';
+    document.title = 'Search Results - Nohana';
     
     toggleLoadingOverlay(true, 'Loading search results...');
     
@@ -192,7 +192,7 @@ function showListingDetail(match) {
  */
 function showHostDashboard() {
     console.log('Host dashboard loaded');
-    document.title = 'Host Dashboard - WaveSurf';
+    document.title = 'Host Dashboard - Nohana';
     
     toggleLoadingOverlay(true, 'Loading host dashboard...');
     
@@ -225,7 +225,7 @@ function showHostDashboard() {
  */
 function showBecomeHostPage() {
     console.log('Become a captain page loaded');
-    document.title = 'Become a Captain - WaveSurf';
+    document.title = 'Become a Captain - Nohana';
     
     // Check if user is already a host
     if (window.AuthService && window.AuthService.isHost()) {
@@ -274,7 +274,7 @@ function showBecomeHostPage() {
  */
 function showFavoritesPage() {
     console.log('Favorites page loaded');
-    document.title = 'My Favorites - WaveSurf';
+    document.title = 'My Favorites - Nohana';
     
     // Check if user is logged in
     if (window.AuthService && !window.AuthService.isLoggedIn()) {
@@ -324,7 +324,7 @@ function showFavoritesPage() {
  */
 function showAccountPage() {
     console.log('Account page loaded');
-    document.title = 'My Account - WaveSurf';
+    document.title = 'My Account - Nohana';
     
     // Check if user is logged in
     if (window.AuthService && !window.AuthService.isLoggedIn()) {
@@ -375,7 +375,7 @@ function showAccountPage() {
  */
 function showMessagesPage() {
     console.log('Messages page loaded');
-    document.title = 'Messages - WaveSurf';
+    document.title = 'Messages - Nohana';
     
     // Check if user is logged in
     if (window.AuthService && !window.AuthService.isLoggedIn()) {
@@ -434,7 +434,7 @@ function showMessagesPage() {
  */
 function showBookings() {
     console.log('Bookings page loaded');
-    document.title = 'Your Bookings - WaveSurf';
+    document.title = 'Your Bookings - Nohana';
     
     // Check if user is logged in
     if (window.AuthService && !window.AuthService.isLoggedIn()) {
@@ -484,7 +484,7 @@ function showBookings() {
  */
 function showBookingPage(match) {
     console.log('Booking page loaded');
-    document.title = 'Book a Seat - WaveSurf';
+    document.title = 'Book a Seat - Nohana';
     
     // Get listing ID from URL
     const listingId = match.data.id;
@@ -546,7 +546,7 @@ function showBookingPage(match) {
  */
 function showBookingConfirmation(match) {
     console.log('Booking confirmation page loaded');
-    document.title = 'Booking Confirmation - WaveSurf';
+    document.title = 'Booking Confirmation - Nohana';
     
     // Get booking ID from URL
     const bookingId = match.data.id;
@@ -591,7 +591,7 @@ function showBookingConfirmation(match) {
  */
 function showBookingDetails(match) {
     console.log('Booking details page loaded');
-    document.title = 'Booking Details - WaveSurf';
+    document.title = 'Booking Details - Nohana';
     
     // Get booking ID from URL
     const bookingId = match.data.id;
@@ -642,7 +642,7 @@ function showBookingDetails(match) {
  */
 function show404() {
     console.log('Page not found');
-    document.title = 'Page Not Found - WaveSurf';
+    document.title = 'Page Not Found - Nohana';
     
     // Get the main content container
     const mainContent = document.getElementById('main-content');

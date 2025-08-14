@@ -1,6 +1,6 @@
-# WaveSurf - Boat Seat Booking Marketplace
+# Nohana - Boat Seat Booking Marketplace
 
-A marketplace application for booking individual seats on boats for wakesurfing, fishing, water skiing, wakeboarding, and cruising activities. Inspired by Airbnb's UI/UX patterns but specialized for water sports and activities with a focus on per-seat booking rather than entire boat rentals.
+A marketplace application for booking individual seats on boats for wakesurfing, fishing, water skiing, wakeboarding, and cruising activities. Inspired by modern marketplace UI/UX patterns but specialized for water sports and activities with a focus on per-seat booking rather than entire boat rentals.
 
 ## Features
 

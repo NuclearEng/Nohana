@@ -486,10 +486,10 @@ function initSearchTabs() {
     // Initialize guest counter
     const guestTab = document.querySelector('[data-tab="guests"]');
     const guestCountInput = document.getElementById('guest-count');
-    const decrementBtn = guestTab.querySelector('.guest-decrement');
-    const incrementBtn = guestTab.querySelector('.guest-increment');
+    const decrementBtn = guestTab ? guestTab.querySelector('.guest-decrement') : null;
+    const incrementBtn = guestTab ? guestTab.querySelector('.guest-increment') : null;
     
-    if (guestCountInput && decrementBtn && incrementBtn) {
+    if (guestTab && guestCountInput && decrementBtn && incrementBtn) {
         let guestCount = parseInt(guestCountInput.value) || 1;
         
         // Update the UI based on guest count

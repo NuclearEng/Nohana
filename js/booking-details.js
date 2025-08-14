@@ -106,7 +106,8 @@ function initBookingDetails(bookingId) {
     document.getElementById('booking-status').className = `status-${booking.status}`;
     document.getElementById('boat-title').textContent = booking.boatName;
     document.getElementById('boat-location').textContent = booking.location;
-    document.getElementById('booking-date').textContent = formatDate(booking.date);
+    const dateEl = document.getElementById('booking-date');
+    if (dateEl) dateEl.textContent = formatDate(booking.date);
     document.getElementById('booking-time').textContent = booking.time;
     document.getElementById('booking-seats').textContent = `${booking.seats} ${booking.seats === 1 ? 'seat' : 'seats'}`;
     document.getElementById('price-per-seat').textContent = `$${booking.pricePerSeat}`;
@@ -458,7 +459,8 @@ function openModifyBookingModal(booking) {
             booking.total = booking.subtotal + booking.serviceFee;
             
             // Update UI
-            document.getElementById('booking-date').textContent = formatDate(date);
+            const dateEl2 = document.getElementById('booking-date');
+            if (dateEl2) dateEl2.textContent = formatDate(date);
             document.getElementById('booking-time').textContent = time;
             document.getElementById('booking-seats').textContent = `${seats} ${seats === 1 ? 'seat' : 'seats'}`;
             document.getElementById('price-per-seat').textContent = `$${booking.pricePerSeat}`;

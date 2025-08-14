@@ -599,23 +599,22 @@ function showBookingConfirmation(match) {
         return;
     }
     
-    // Set the content from templates
-    if (window.templates && window.templates['booking-confirmation']) {
-        mainContent.innerHTML = window.templates['booking-confirmation'];
-        
-        // Initialize booking confirmation
-        if (typeof initBookingConfirmation === 'function') {
-            initBookingConfirmation(bookingId);
-        } else {
-            console.error('Booking confirmation initialization function not found');
-            toggleLoadingOverlay(false);
+    // Load booking confirmation template from file to ensure expected IDs exist
+    fetch('templates/booking-confirmation.html')
+        .then(response => response.text())
+        .then(template => {
+            mainContent.innerHTML = template;
+            if (typeof initBookingConfirmation === 'function') {
+                initBookingConfirmation(bookingId);
+            } else {
+                console.error('Booking confirmation initialization function not found');
+                navigateToHome();
+            }
+        })
+        .catch(error => {
+            console.error('Failed to load booking confirmation:', error);
             navigateToHome();
-        }
-    } else {
-        console.error('Booking confirmation template not found');
-        toggleLoadingOverlay(false);
-        navigateToHome();
-    }
+        });
 }
 
 /**

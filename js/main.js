@@ -72,6 +72,13 @@ window.initMap = function() {
             }
         ];
         
+        // If no Maps API key configured, skip JS map entirely (handled elsewhere) to avoid API errors
+        const configuredKey = window.__CONFIG__?.GOOGLE_MAPS_API_KEY || '';
+        if (!configuredKey) {
+            console.warn('Google Maps API key not configured; skipping map markers.');
+            return;
+        }
+
         // Create markers for each listing
         listings.forEach(listing => {
             // Create info window content

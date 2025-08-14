@@ -306,23 +306,29 @@ function initMeetingLocationMap(coordinates) {
     if (typeof google !== 'undefined' && google.maps) {
         initMap();
     } else {
-        // If not loaded yet, set up a callback for when it loads
+        // If no API key configured, immediately use static map and do not load JS API
+        const configuredKey = window.__CONFIG__?.GOOGLE_MAPS_API_KEY || '';
+        if (!configuredKey) {
+            useStaticMap();
+            return;
+        }
+
+        // Set up a callback for when it loads
         window.initGoogleMapsCallback = function() {
             initMap();
         };
-        
+
         // Add a timeout to fall back to static map if Google Maps doesn't load within 3 seconds
         setTimeout(function() {
             if (!(typeof google !== 'undefined' && google.maps)) {
                 useStaticMap();
             }
         }, 3000);
-        
+
         // Try to load Google Maps if not already loading
         if (!document.querySelector('script[src*="maps.googleapis.com/maps/api/js"]')) {
             const script = document.createElement('script');
-            const key = window.__CONFIG__?.GOOGLE_MAPS_API_KEY || '';
-            script.src = `https://maps.googleapis.com/maps/api/js?libraries=places&callback=initGoogleMapsCallback${key ? `&key=${key}` : ''}`;
+            script.src = `https://maps.googleapis.com/maps/api/js?libraries=places&callback=initGoogleMapsCallback&key=${configuredKey}`;
             script.async = true;
             script.defer = true;
             document.head.appendChild(script);

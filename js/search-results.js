@@ -211,7 +211,9 @@ function createListingCard(listing) {
 }
 
 function updateMap(listings) {
-    if (!window.google || !window.google.maps) {
+    // Respect missing API key: skip JS map if key not provided
+    const hasKey = !!(window.__CONFIG__ && window.__CONFIG__.GOOGLE_MAPS_API_KEY);
+    if (!hasKey || !window.google || !window.google.maps) {
         console.warn('Google Maps not loaded yet');
         return;
     }

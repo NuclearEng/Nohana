@@ -855,5 +855,16 @@ function getRatingStars(rating) {
     return starsHtml;
 }
 
+(function wrapDashboardScaffold(){
+  const root = document.querySelector('.host-dashboard-container');
+  if (root && !root.classList.contains('surface')) {
+    root.classList.add('surface');
+    const header = root.querySelector('.dashboard-header');
+    if (header) header.classList.add('page-header');
+    const main = root.querySelector('.dashboard-content');
+    if (main && !main.classList.contains('card-body')) main.classList.add('card-body');
+  }
+})();
+
 // Make initHostDashboard available globally
 window.initHostDashboard = initHostDashboard;

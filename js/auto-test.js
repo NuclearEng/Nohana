@@ -114,6 +114,8 @@
 		}
 
 		console.log('Auto UI Test complete. Errors found:', window.__TEST_ERRORS__);
+		window.__AUTOTEST_DONE__ = true;
+		try { window.__GET_AUTOTEST_ERRORS__ = () => window.__TEST_ERRORS__; } catch(_) {}
 		addReport();
 	}
 

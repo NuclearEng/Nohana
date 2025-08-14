@@ -89,13 +89,27 @@
 }
 
 /* Booking details section */
-.booking-details-section {
+/* Booking details main layout */
+.booking-details-main {
     display: grid;
-    grid-template-columns: 540px 1fr; /* bigger media/map column */
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: 1fr 420px; /* content + sidebar */
+    gap: 24px;
 }
+
+/* Top boat info spans full width */
+.booking-details-main > .booking-boat-info { grid-column: 1 / -1; }
+
+/* Payment details (first section) goes to sidebar */
+.booking-details-main > .booking-details-section:nth-of-type(1) { grid-column: 2; }
+
+/* Meeting location spans full width for large map */
+.booking-details-main > .booking-details-section:nth-of-type(2) { grid-column: 1 / -1; }
+
+/* Host info to sidebar under map */
+.booking-details-main > .booking-details-section:nth-of-type(3) { grid-column: 2; }
+
+/* Cancellation policy in main column */
+.booking-details-main > .booking-details-section:nth-of-type(4) { grid-column: 1; }
 
 .listing-summary {
     display: flex;
@@ -784,7 +798,7 @@
 }
 
 .meeting-location-map {
-    height: 300px; /* increase map visibility */
+    height: 380px; /* make map noticeably larger */
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 15px;
